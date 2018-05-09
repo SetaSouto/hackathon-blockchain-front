@@ -57,6 +57,9 @@
                     @keyup.enter="search" v-model="searchText"
                     class="hidden-sm-and-down"/>
       <v-spacer/>
+      <v-btn icon @click="changeToRealEstate">
+        <v-icon>home</v-icon>
+      </v-btn>
       <v-btn icon @click="changeToBank">
         <v-icon>account_balance</v-icon>
       </v-btn>
@@ -124,6 +127,10 @@
         this.toolbar.color = 'blue darken-3'
         this.$router.push('/busqueda')
       },
+      changeToRealEstate () {
+        this.toolbar.color = 'deep-purple lighten-2'
+        this.$router.push('/inmobiliaria')
+      },
       search () {
         this.$store.commit('search', {
           results: [{
@@ -132,6 +139,7 @@
             price: '20000 UF'
           }]
         })
+        this.changeToUser()
       }
     }
   }
