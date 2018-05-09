@@ -24,9 +24,7 @@
             <v-layout>
               <v-flex md12>
                 <v-text-field label="Dirección" single-line prepend-icon="home"/>
-                <v-text-field label="Dirección" single-line prepend-icon="home"/>
-                <v-text-field label="Dirección" single-line prepend-icon="home"/>
-                <v-text-field label="Dirección" single-line prepend-icon="home"/>
+                <v-text-field label="ROL" single-line prepend-icon="bookmark"/>
               </v-flex>
             </v-layout>
           </v-container>
