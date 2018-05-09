@@ -18,23 +18,9 @@
       ApplicantCard,
       FullPageCover
     },
-    data () {
-      return {
-        applicants: [
-          {
-            property: {
-              address: 'Vergara 726, depto 400, Santiago',
-              price: '10.000 UF',
-              img: require('../search/sample.jpg')
-            },
-            applicant: {
-              name: 'Fabián Souto',
-              rut: '18876543-2',
-              phone: '+56984215265',
-              email: 'fabian.souto@email.com'
-            }
-          }
-        ]
+    computed: {
+      applicants () {
+        return this.$store.state.applicants
       }
     }
   }

@@ -3,7 +3,7 @@
     <v-container>
       <!-- PROPERTIES -->
       <property-card v-for="result in results" :key="result.address" :img="result.img" :address="result.address"
-                     :price="result.price" @credit="notifyCredit" @favorite="notifyFavorite"/>
+                     :price="result.price" @credit="notifyCredit(result)" @favorite="notifyFavorite"/>
       <v-layout v-if="!results.length">
         <v-flex md12 class="align-center">
           <h1 class="header-title">Prueba nuestro buscador y encuentra la propiedad perfecta para ti</h1>
@@ -41,7 +41,8 @@
       }
     },
     methods: {
-      notifyCredit () {
+      notifyCredit (property) {
+        this.addApplicant(property)
         this.notification.show = true
         this.notification.message = 'Hemos notificado a los bancos que estás buscando crédito hipotecario. ¡Suerte!'
       },
@@ -50,6 +51,17 @@
         this.notification.message = 'Agregado a favoritos.'
         const self = this
         setTimeout(() => { self.notification.show = false }, 2000)
+      },
+      addApplicant (property) {
+        this.$store.commit('addApplicant', {
+          property,
+          applicant: {
+            name: 'Fabián Souto',
+            rut: '18876543-2',
+            phone: '+56984215265',
+            email: 'fabian.souto@email.com'
+          }
+        })
       }
     }
   }
