@@ -6,7 +6,7 @@
         <v-flex md12>
           <h1 class="principal-title">¿Nueva propiedad?</h1>
           <h1 class="secondary-title">Ingrésala a la Blockchain</h1>
-          <v-btn large color="blue darken-1" class="white--text elevation-10" @click="dialog.show = true">
+          <v-btn large color="deep-purple lighten-2" class="white--text elevation-10" @click="dialog.show = true">
             Subir propiedad
             <v-icon right dark>cloud_upload</v-icon>
           </v-btn>
