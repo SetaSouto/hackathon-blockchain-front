@@ -6,6 +6,7 @@ import AddProperty from '../components/views/add-property/Layout'
 import Search from '../components/views/search/Layout'
 import BankView from '../components/views/bank/Layout'
 import PropertyView from '../components/views/property/Layout'
+import TradeView from '../components/views/trade/Layout'
 
 Vue.use(Router)
 
@@ -36,6 +37,10 @@ export default new Router({
           path: '/propiedades/:id',
           name: 'propiedades',
           component: PropertyView
+        },
+        {
+          path: '/transacciones',
+          component: TradeView
         }
       ]
     }

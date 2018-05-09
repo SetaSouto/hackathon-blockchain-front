@@ -66,6 +66,9 @@
       <v-btn icon @click="changeToUser">
         <v-icon>account_circle</v-icon>
       </v-btn>
+      <v-btn icon @click="changeToTrade">
+        <v-icon>compare_arrows</v-icon>
+      </v-btn>
     </v-toolbar>
     <v-content>
       <router-view/>
@@ -77,47 +80,10 @@
   export default {
     data: () => ({
       searchText: '',
-      dialog: false,
-      drawer: null,
       toolbar: {
         color: 'blue darken-3'
-      },
-      items: [
-        {icon: 'contacts', text: 'Contacts'},
-        {icon: 'history', text: 'Frequently contacted'},
-        {icon: 'content_copy', text: 'Duplicates'},
-        {
-          icon: 'keyboard_arrow_up',
-          'icon-alt': 'keyboard_arrow_down',
-          text: 'Labels',
-          model: true,
-          children: [
-            {icon: 'add', text: 'Create label'}
-          ]
-        },
-        {
-          icon: 'keyboard_arrow_up',
-          'icon-alt': 'keyboard_arrow_down',
-          text: 'More',
-          model: false,
-          children: [
-            {text: 'Import'},
-            {text: 'Export'},
-            {text: 'Print'},
-            {text: 'Undo changes'},
-            {text: 'Other contacts'}
-          ]
-        },
-        {icon: 'settings', text: 'Settings'},
-        {icon: 'chat_bubble', text: 'Send feedback'},
-        {icon: 'help', text: 'Help'},
-        {icon: 'phonelink', text: 'App downloads'},
-        {icon: 'keyboard', text: 'Go to the old version'}
-      ]
+      }
     }),
-    props: {
-      source: String
-    },
     methods: {
       changeToBank () {
         this.toolbar.color = 'teal'
@@ -130,6 +96,10 @@
       changeToRealEstate () {
         this.toolbar.color = 'deep-purple lighten-2'
         this.$router.push('/inmobiliaria')
+      },
+      changeToTrade () {
+        this.toolbar.color = 'orange lighten-1'
+        this.$router.push('/transacciones')
       },
       search () {
         this.$store.commit('search', {
