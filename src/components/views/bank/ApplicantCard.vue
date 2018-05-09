@@ -17,8 +17,9 @@
         </div>
       </v-card-title>
       <v-card-actions>
-        <v-btn flat color="orange">Contactar</v-btn>
+        <v-btn flat color="grey">Contactar</v-btn>
         <v-btn flat color="orange" @click="$router.push('/propiedades/4567-65')">Ver propiedad</v-btn>
+        <v-btn flat color="success" @click="$emit('approveCredit')">Crédito aprobado</v-btn>
       </v-card-actions>
     </v-card>
   </v-flex>

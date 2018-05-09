@@ -8,7 +8,8 @@ export default new Vuex.Store({
     search: {
       results: []
     },
-    applicants: []
+    applicants: [],
+    approvedProperty: null
   },
   mutations: {
     search (state, payload) {
@@ -16,6 +17,10 @@ export default new Vuex.Store({
     },
     addApplicant (state, payload) {
       state.applicants.push(payload)
+    },
+    approveCredit (state, payload) {
+      state.approvedProperty = payload
+      state.applicants = state.applicants.filter(tuple => tuple.property.address !== payload.address)
     }
   }
 })

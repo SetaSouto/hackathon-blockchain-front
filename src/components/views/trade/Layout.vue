@@ -52,21 +52,21 @@
     },
     data () {
       return {
-        property: {
-          address: 'Vergara 726, Santiago Centro',
-          img: require('../search/sample.jpg'),
-          price: '20000 UF'
-        },
         notification: {
           show: false,
           message: 'Transacción aprobada, notificaremos al nuevo dueño.'
         }
       }
     },
+    computed: {
+      property () {
+        return this.$store.state.approvedProperty
+      }
+    },
     methods: {
       allowTransaction () {
         this.notification.show = true
-        this.property = null
+        this.$store.commit('approveCredit', null)
       }
     }
   }

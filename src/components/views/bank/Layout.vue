@@ -14,9 +14,17 @@
       </v-layout>
       <v-layout>
         <applicant-card v-for="tuple in applicants" :key="tuple.applicant.rut" :applicant="tuple.applicant"
-                        :property="tuple.property"/>
+                        :property="tuple.property" @approveCredit="approveCredit(tuple)"/>
       </v-layout>
     </v-container>
+    <!-- DIALOG -->
+    <v-dialog v-model="notification.show" max-width="500px">
+      <v-card>
+        <v-card-title>
+          <p class="notification-message">{{ notification.message }}</p>
+        </v-card-title>
+      </v-card>
+    </v-dialog>
   </full-page-cover>
 </template>
 
@@ -25,6 +33,14 @@
   import ApplicantCard from './ApplicantCard'
 
   export default {
+    data () {
+      return {
+        notification: {
+          show: false,
+          message: 'Crédito aprobado, notificaremos a tu cliente y al vendedor para que apruebe la transacción.'
+        }
+      }
+    },
     components: {
       ApplicantCard,
       FullPageCover
@@ -32,6 +48,12 @@
     computed: {
       applicants () {
         return this.$store.state.applicants
+      }
+    },
+    methods: {
+      approveCredit ({property, applicant}) {
+        this.notification.show = true
+        this.$store.commit('approveCredit', property)
       }
     }
   }
@@ -48,5 +70,9 @@
 
   .secondary-title {
     font-size: 30px;
+  }
+
+  .notification-message {
+    font-size: 20px;
   }
 </style>
