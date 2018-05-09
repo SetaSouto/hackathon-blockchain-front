@@ -4,6 +4,11 @@
       <!-- PROPERTIES -->
       <property-card v-for="result in results" :key="result.address" :img="result.img" :address="result.address"
                      :price="result.price" @credit="notifyCredit" @favorite="notifyFavorite"/>
+      <v-layout v-if="!results.length">
+        <v-flex md12 class="align-center">
+          <h1 class="header-title">Prueba nuestro buscador y encuentra la propiedad perfecta para ti</h1>
+        </v-flex>
+      </v-layout>
       <!-- DIALOG -->
       <v-dialog v-model="notification.show" max-width="500px">
         <v-card>
@@ -55,4 +60,12 @@
     font-size: 20px;
   }
 
+  .align-center {
+    text-align: center;
+  }
+
+  .header-title {
+    font-size: 50px;
+    color: #fff;
+  }
 </style>
