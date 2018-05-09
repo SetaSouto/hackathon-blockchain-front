@@ -54,6 +54,7 @@
         <span class="hidden-sm-and-down">Registro de propiedades</span>
       </v-toolbar-title>
       <v-text-field flat solo-inverted prepend-icon="search" label="Búsqueda por ROL, comuna o ciudad"
+                    @keyup.enter="search" v-model="searchText"
                     class="hidden-sm-and-down"/>
       <v-spacer/>
       <v-btn icon @click="changeToBank">
@@ -72,6 +73,7 @@
 <script>
   export default {
     data: () => ({
+      searchText: '',
       dialog: false,
       drawer: null,
       toolbar: {
@@ -121,6 +123,15 @@
       changeToUser () {
         this.toolbar.color = 'blue darken-3'
         this.$router.push('/busqueda')
+      },
+      search () {
+        this.$store.commit('search', {
+          results: [{
+            address: 'Vergara 726, Santiago Centro',
+            img: require('./views/search/sample.jpg'),
+            price: '20000 UF'
+          }]
+        })
       }
     }
   }

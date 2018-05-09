@@ -11,8 +11,8 @@
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat color="blue">Agregar a favoritos</v-btn>
-          <v-btn flat color="orange">Solicitar crédito</v-btn>
+          <v-btn flat color="blue" @click="$emit('favorite')">Agregar a favoritos</v-btn>
+          <v-btn flat color="orange" @click="$emit('credit')">Solicitar crédito</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
