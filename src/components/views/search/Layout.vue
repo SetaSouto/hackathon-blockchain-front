@@ -1,14 +1,15 @@
 <template>
   <full-page-cover :background-image="require('../add-property/background.jpg')">
     <v-container>
-      <property-card v-for="result in results" :key="result.direccion" :img="result.img" :address="result.address"/>
+      <property-card v-for="result in results" :key="result.direccion" :img="result.img" :address="result.address"
+                     :price="result.price"/>
     </v-container>
   </full-page-cover>
 </template>
 
 <script>
   import FullPageCover from '../../FullPageCover'
-  import PropertyCard from '../PropertyCard'
+  import PropertyCard from './PropertyCard'
 
   export default {
     components: {
@@ -19,7 +20,8 @@
       return {
         results: [{
           address: 'Vergara 726, depto 400',
-          img: require('./sample.jpg')
+          img: require('./sample.jpg'),
+          price: '10000 UF'
         }]
       }
     }

@@ -4,6 +4,7 @@ import Layout from '../components/Layout'
 /* VIEWS */
 import AddProperty from '../components/views/add-property/Layout'
 import Search from '../components/views/search/Layout'
+import BankView from '../components/views/bank/Layout'
 
 Vue.use(Router)
 
@@ -28,7 +29,7 @@ export default new Router({
         {
           path: '/banco',
           name: 'banco',
-          component: AddProperty
+          component: BankView
         }
       ]
     }
