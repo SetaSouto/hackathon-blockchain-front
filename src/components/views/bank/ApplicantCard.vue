@@ -18,7 +18,7 @@
       </v-card-title>
       <v-card-actions>
         <v-btn flat color="orange">Contactar</v-btn>
-        <v-btn flat color="orange">Ver propiedad</v-btn>
+        <v-btn flat color="orange" @click="$router.push('/propiedades/4567-65')">Ver propiedad</v-btn>
       </v-card-actions>
     </v-card>
   </v-flex>
