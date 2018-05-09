@@ -48,7 +48,7 @@
       </v-list>
     </v-navigation-drawer>
     -->
-    <v-toolbar :clipped-left="$vuetify.breakpoint.lgAndUp" color="blue darken-3" dark app fixed>
+    <v-toolbar :clipped-left="$vuetify.breakpoint.lgAndUp" :color="toolbar.color" dark app fixed>
       <v-toolbar-title style="width: 315px" class="ml-0 pl-3">
         <v-toolbar-side-icon @click.stop="drawer = !drawer"/>
         <span class="hidden-sm-and-down">Registro de propiedades</span>
@@ -56,10 +56,10 @@
       <v-text-field flat solo-inverted prepend-icon="search" label="Búsqueda por ROL, comuna o ciudad"
                     class="hidden-sm-and-down"/>
       <v-spacer/>
-      <v-btn icon>
+      <v-btn icon @click="changeToBank">
         <v-icon>account_balance</v-icon>
       </v-btn>
-      <v-btn icon>
+      <v-btn icon @click="changeToUser">
         <v-icon>account_circle</v-icon>
       </v-btn>
     </v-toolbar>
@@ -74,6 +74,9 @@
     data: () => ({
       dialog: false,
       drawer: null,
+      toolbar: {
+        color: 'blue darken-3'
+      },
       items: [
         {icon: 'contacts', text: 'Contacts'},
         {icon: 'history', text: 'Frequently contacted'},
@@ -109,6 +112,16 @@
     }),
     props: {
       source: String
+    },
+    methods: {
+      changeToBank () {
+        this.toolbar.color = 'teal'
+        this.$router.push('/banco')
+      },
+      changeToUser () {
+        this.toolbar.color = 'blue darken-3'
+        this.$router.push('/busqueda')
+      }
     }
   }
 </script>

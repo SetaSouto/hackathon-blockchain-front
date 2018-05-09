@@ -24,6 +24,11 @@ export default new Router({
           path: '/busqueda',
           name: 'busqueda',
           component: Search
+        },
+        {
+          path: '/banco',
+          name: 'banco',
+          component: AddProperty
         }
       ]
     }
