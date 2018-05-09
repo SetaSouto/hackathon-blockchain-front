@@ -1,5 +1,5 @@
 <template>
-  <v-flex xs12 sm4>
+  <v-flex xs12 sm4 style="margin: auto;">
     <v-card>
       <v-card-media :src="property.img" height="200px">
       </v-card-media>

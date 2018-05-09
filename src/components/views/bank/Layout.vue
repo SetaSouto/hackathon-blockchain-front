@@ -1,6 +1,17 @@
 <template>
   <full-page-cover :background-image="require('../add-property/background.jpg')">
     <v-container>
+      <v-layout style="text-align: center;">
+        <v-flex v-if="applicants.length">
+          <h1 class="principal-title">Hay gente buscando un crédito hipotecario.</h1>
+          <h1 class="secondary-title">Contacta a alguna de estas personas que están buscando comprar alguna
+            propiedad.</h1>
+        </v-flex>
+        <v-flex v-else>
+          <h1 class="principal-title">No hay nadie buscando un crédito hipotecario.</h1>
+          <h1 class="secondary-title">Te notificaremos ante cualquier nuevo movimiento.</h1>
+        </v-flex>
+      </v-layout>
       <v-layout>
         <applicant-card v-for="tuple in applicants" :key="tuple.applicant.rut" :applicant="tuple.applicant"
                         :property="tuple.property"/>
@@ -27,5 +38,15 @@
 </script>
 
 <style scoped>
+  h1 {
+    color: #fff;
+  }
 
+  .principal-title {
+    font-size: 80px;
+  }
+
+  .secondary-title {
+    font-size: 30px;
+  }
 </style>
