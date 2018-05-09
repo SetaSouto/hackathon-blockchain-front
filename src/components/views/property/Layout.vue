@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-layout>
-      <v-flex xs12 md10 offset-md1>
+      <v-flex xs12 md6 offset-md3>
         <v-card>
           <v-card-media :src="img" height="400px">
           </v-card-media>
@@ -13,7 +13,7 @@
               </v-flex>
             </v-layout>
             <v-layout row>
-              <v-flex md6 offset-md3 sm12 class="align-center">
+              <v-flex md8 offset-md2 sm12 class="align-center">
                 <h1>Histórico de tasaciones</h1>
                 <line-chart :data="oldPrices"></line-chart>
               </v-flex>

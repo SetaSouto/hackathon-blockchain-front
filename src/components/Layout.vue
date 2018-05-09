@@ -49,8 +49,8 @@
     </v-navigation-drawer>
     -->
     <v-toolbar :clipped-left="$vuetify.breakpoint.lgAndUp" :color="toolbar.color" dark app fixed>
-      <v-toolbar-title style="width: 315px" class="ml-0 pl-3">
-        <v-toolbar-side-icon @click.stop="drawer = !drawer"/>
+      <v-toolbar-title style="width: 275px" class="ml-0 pl-3">
+        <!-- <v-toolbar-side-icon @click.stop="drawer = !drawer"/> -->
         <span class="hidden-sm-and-down">Registro de propiedades</span>
       </v-toolbar-title>
       <v-text-field flat solo-inverted prepend-icon="search" label="Búsqueda por ROL, comuna o ciudad"
